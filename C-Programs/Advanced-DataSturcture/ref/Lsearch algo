@@ -1,0 +1,28 @@
+Lsearch - https://www.programmingsimplified.com/c/source-code/c-program-linear-search
+
+Algorithm for Searching and Counting Occurrences in an Array:
+
+1. Initialize variables: array[100], search, c, n, count = 0.
+
+2. Prompt user:
+   - Input number of elements `n`.
+   - Input `n` numbers into `array`.
+
+3. Prompt user:
+   - Input number to search `search`.
+
+4. Initialize `count` to 0.
+
+5. Loop through each element of `array` from index 0 to `n-1`:
+   a. If `array[c]` is equal to `search`:
+      i. Print `search` is present at location `c + 1`.
+      ii. Increment `count` by 1.
+
+6. After loop:
+   - If `count` is 0:
+      - Print `search` isn't present in the array.
+   - Else:
+      - Print `search` is present `count` times in the array.
+
+7. End program.
+

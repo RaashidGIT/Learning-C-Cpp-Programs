@@ -1,0 +1,5 @@
+Hello, World!
+This is a test file for file copying.
+It contains multiple lines of text.
+The purpose is to verify the file copy functionality.
+Have a great day!

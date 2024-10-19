@@ -1,0 +1,35 @@
+// Algorithm for Sorting and Binary Search:
+
+1. Initialize variables: c, first, last, middle, n, search, array[100].
+
+2. Prompt user:
+   a. Input number of elements `n`.
+   b. Input `n` integers into `array`.
+
+3. Sort the array using bubble sort:
+   a. Implement bubble sort function to sort `array` in ascending order.
+
+4. Output sorted array:
+   a. Print elements of `array` after sorting.
+
+5. Prompt user to enter value to find `search`.
+
+6. Initialize `first` to 0 and `last` to `n - 1`.
+   Calculate `middle` as `(first + last) / 2`.
+
+7. Perform binary search:
+   a. While `first` <= `last`:
+      i. If `array[middle]` < `search`:
+            Update `first` to `middle + 1`.
+      ii. Else if `array[middle]` == `search`:
+            Print `search` found at location `middle + 1`.
+            Break out of loop.
+      iii. Else:
+            Update `last` to `middle - 1`.
+      iv. Recalculate `middle` as `(first + last) / 2`.
+
+8. After loop:
+   a. If `first` > `last`, print "Not found! search isn't present in the list."
+
+9. End program.
+
