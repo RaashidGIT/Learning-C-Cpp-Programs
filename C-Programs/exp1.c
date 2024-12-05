@@ -1,3 +1,5 @@
+// To find perfect numbers within a specified range
+
 #include<stdio.h>
 int main(){
 	int a,b,n;
