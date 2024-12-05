@@ -22,3 +22,14 @@ int main(){
 	printf("\n");
 	return 0;
 }
+
+/* 
+
+OUTPUT
+--------------------------------------
+Enter starting range: 1
+Enter ending range: 10
+
+6  28
+
+*/
