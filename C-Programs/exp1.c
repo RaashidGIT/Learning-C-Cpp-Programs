@@ -7,6 +7,20 @@ A perfect number is a positive integer equal to the sum of its proper divisors (
 
 */
 
+/*
+
+START
+1. Input starting range `a` and ending range `b`.
+2. FOR each number `n` from `a` to `b`:
+   a. Initialize `sum` to 0.
+   b. FOR each integer `i` from 1 to `n-1`:
+      i. If `i` divides `n` (i.e., `n % i == 0`), add `i` to `sum`.
+   c. If `sum` equals `n`, print `n` as a perfect number.
+3. END
+STOP
+
+*/
+
 #include<stdio.h>
 int main(){
 	int a,b,n;
