@@ -35,7 +35,7 @@ int main(){
 OUTPUT
 --------------------------------------
 Enter starting range: 1
-Enter ending range: 10
+Enter ending range: 100
 
 6  28
 
