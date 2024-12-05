@@ -1,5 +1,12 @@
 // To find perfect numbers within a specified range
 
+/*
+
+A perfect number is a positive integer equal to the sum of its proper divisors (excluding itself). For example, 6.
+6 is a perfect number because its divisors 1,2,3 sum to 6.
+
+*/
+
 #include<stdio.h>
 int main(){
 	int a,b,n;
