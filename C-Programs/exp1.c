@@ -39,7 +39,7 @@ int main(){
 		}
 		if(sum==n)
 			printf("%d\t",n);
-		}
+	}
 	printf("\n");
 	return 0;
 }
