@@ -6,26 +6,24 @@ START
 1. Input `n` (number of rows) from the user.
    // `n` determines the height of the pyramid.
 2. FOR each row `i` from 1 to `n`:
-   // This outer loop controls the rows of the pyramid.
+   // The outer loop controls the number of rows.
    a. Print spaces:
-      - FOR `s` from 1 to `n - i`:
+      - FOR `j` from 1 to `n - i`:
         - Print a space " ".
-        // This centers the numbers for row `i`.
+        // Print enough spaces to center-align the numbers in row `i`.
    b. Print increasing numbers:
-      - Initialize `k = i`.
-      - FOR `j` from 1 to `i`:
-        - Print `k`.
-        - Increment `k` by 1.
-        // This prints numbers starting from `i` and increasing by 1.
+      - FOR `j` from 0 to `i - 1`:
+        - Print `i + j`.
+        // Start at `i` and increment the number with each iteration.
    c. Print decreasing numbers:
-      - Initialize `k = 2 * i - 2`.
-      - FOR `j` from 1 to `i - 1`:
-        - Print `k`.
-        - Decrement `k` by 1.
-        // This prints numbers decreasing back toward the initial number.
-   d. Print a newline to move to the next row.
+      - FOR `j` from `i - 2` down to 0:
+        - Print `i + j`.
+        // Start where the increasing numbers left off and decrement back.
+   d. Print a newline:
+      - Move to the next row.
 3. Repeat until all rows are printed.
 STOP
+
 
 */
 
@@ -33,31 +31,29 @@ STOP
 #include <stdio.h>
 
 int main() {
-    int i, j, k, n, s;
-    printf("Enter number of rows:");
+    int i, j, n;
+    printf("Enter number of rows: ");
     scanf("%d", &n);
-    
+
     for (i = 1; i <= n; i++) {
         // Print spaces
-        for (s = 1; s <= n - i; s++) {
+        for (j = 1; j <= n - i; j++) {
             printf(" ");
         }
-        
+
         // Print increasing numbers
-        k = i;
-        for (j = 1; j <= i; j++) {
-            printf("%d", k++);
+        for (j = 0; j < i; j++) {
+            printf("%d", i + j);
         }
-        
+
         // Print decreasing numbers
-        k = 2 * i - 2;
-        for (j = 1; j < i; j++) {
-            printf("%d", k--);
+        for (j = i - 2; j >= 0; j--) {
+            printf("%d", i + j);
         }
-        
+
         printf("\n");
     }
-    
+
     return 0;
 }
 
