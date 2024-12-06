@@ -57,7 +57,7 @@ int main() {
 
     // Bubble Sort algorithm
     for (i = 0; i < n - 1; i++) {
-	// for(j = 0; j < n-1; j++) Without optimization
+	// for(j = 0; j < n - 1; j++) Without optimization
         for (j = 0; j < n - i - 1; j++) {  // Optimize: Skip last sorted elements
             if (a[j] > a[j + 1]) {
                 // Swap a[j] and a[j + 1]
