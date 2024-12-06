@@ -5,10 +5,6 @@
 A perfect number is a positive integer equal to the sum of its proper divisors (excluding itself). For example, 6.
 6 is a perfect number because its divisors 1,2,3 sum to 6.
 
-*/
-
-/*
-
 START
 1. Input starting range `a` and ending range `b`.
 2. FOR each number `n` from `a` to `b`:
