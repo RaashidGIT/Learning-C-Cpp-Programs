@@ -2,7 +2,6 @@
 
 This program performs matrix multiplication between two matrices A (m x n) and B (p x q).
 
-
 */
 
 #include<stdio.h>
