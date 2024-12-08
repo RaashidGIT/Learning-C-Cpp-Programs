@@ -6,26 +6,6 @@ A perfect number is a positive integer equal to the sum of its proper divisors (
 For example, 6.
 6 is a perfect number because its divisors 1,2,3 sum to 6.
 
-START
-1. Declare variables `start`, `end`, `num`, `i`, `sum`.
-2. Prompt the user:
-   - "Enter starting range:"
-   - Input `start`.
-3. Prompt the user:
-   - "Enter ending range:"
-   - Input `end`.
-4. Print "Perfect numbers in the range start to end are:"
-5. FOR each number `num` from `start` to `end` (inclusive):
-   a. Set `sum = 0`.
-   b. FOR each potential divisor `i` from 1 to `num / 2`:
-      - IF `num % i == 0`: // `i` is a divisor of `num`
-         - Add `i` to `sum`.
-   c. IF `sum == num`: // Check if the number is perfect
-      - Print `num`.
-6. Print a newline for formatting.
-STOP
-
-
 */
 
 #include <stdio.h>
