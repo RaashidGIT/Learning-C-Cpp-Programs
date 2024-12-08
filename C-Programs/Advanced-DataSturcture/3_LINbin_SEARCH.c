@@ -108,16 +108,18 @@ void binary_search(int a[], int n, int value) {
 OUTPUT
 -------------------------------------------------------------
 Enter the size of array: 5
-Enter the elements into array: 1 3 5 7 9
-Elements in the array are: 1 3 5 7 9
-Enter the value to be searched: 5
+Enter the elements into array: 5 2 9 1 4
+Elements in the array are: 5 2 9 1 4
+Choose the search method:
+1. Linear Search
+2. Binary Search
+Enter your choice: 2
+Enter the value to be searched: 4
 
-Sequential search
-________________
-5 is found at position 3
+Array sorted successfully!
 
-Binary search
-______________________
-5 is found at position 3
+Performing Binary Search...
+
+4 is found at position 3
 
 */
