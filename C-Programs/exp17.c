@@ -13,7 +13,7 @@ This is especially relevant when you switch between reading numbers and strings 
 struct student {
     char name[50], address[100], place[50];
     int pin;
-};
+}s[];
 
 int main() {
     int n, i;
