@@ -1,5 +1,11 @@
+/*
+
+This C program copies the content from one file and appends it to another file, then displays the updated content of the second file.
+
+*/
+
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> // provides functions for general-purpose utilities
 
 int main()
 {
@@ -19,7 +25,7 @@ int main()
     // Open the second file for appending
     printf("Enter the filename to append\n");
     scanf("%s", fname2);
-    fptr2 = fopen(fname2, "a");
+    fptr2 = fopen(fname2, "a"); // Open the second file in append mode
     if (fptr2 == NULL)
     {
         printf("Cannot open file %s for appending\n", fname2);
@@ -28,11 +34,11 @@ int main()
     }
 
     // Append content from the first file to the second file
-    c = fgetc(fptr1);
-    while (c != EOF)
+    c = fgetc(fptr1); // Read the first character from the first file
+    while (c != EOF) // Continue until the end of the first file
     {
-        fputc(c, fptr2);
-        c = fgetc(fptr1);
+        fputc(c, fptr2); // Write the character to the second file
+        c = fgetc(fptr1); // Read the next character
     }
 
     printf("\nContent in %s appended to %s\n\n\n", fname1, fname2);
@@ -50,7 +56,7 @@ int main()
     }
 
     // Read and display the content of the second file
-    while ((c = fgetc(fptr2)) != EOF)
+    while ((c = fgetc(fptr2)) != EOF) // Continue reading until end of file
     {
         printf("%c", c);
     }
@@ -61,3 +67,20 @@ int main()
     return 0;
 }
 
+/*
+
+OUTPUT
+------------------------------------------------------
+Enter the filename to open  
+demo1.txt  
+
+Enter the filename to append  
+demo2.txt  
+
+
+Content in demo1.txt appended to demo2.txt  
+
+Updated content of demo2.txt:  
+[Contents of demo2.txt printed here]
+
+*/
