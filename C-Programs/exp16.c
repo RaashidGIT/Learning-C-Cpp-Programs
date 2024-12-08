@@ -6,6 +6,7 @@ different.
 */
 
 #include <stdio.h>
+// #include <string.h>  // Include string.h for strcmp() FOR DIRECT METHOD
 
 int mystrcmp(char str1[], char str2[]);
 
