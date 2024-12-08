@@ -253,10 +253,10 @@ void display() {
     // Traverse the list and print the data of each node
     printf("The linked list: ");
     while (temp != NULL) {
-        printf("%d -> ", temp->data);
-        temp = temp->next;
+        printf("%d -> ", temp->data); // Print the data of the current node
+        temp = temp->next; // Move to the next node
     }
-    printf("NULL\n");
+    printf("NULL\n"); // Indicate the end of the linked list
 }
 
 
