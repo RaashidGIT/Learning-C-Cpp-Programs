@@ -1,3 +1,9 @@
+/*
+
+This C program inserts one string (str2) into another string (str1) at a specified position.
+
+*/
+
 #include <stdio.h>
 #include <string.h>
 
@@ -41,3 +47,17 @@ int main() {
     return 0;
 }
 
+/*
+
+OUTPUT
+-------------------------------------------------------------
+Enter the string 1:
+hello
+Enter the string 2:
+world
+Enter the position where the string to be inserted in:
+2
+
+After inserting the string, str1 is: heworldllo
+
+*/
