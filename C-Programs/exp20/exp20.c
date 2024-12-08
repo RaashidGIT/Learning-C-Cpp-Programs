@@ -1,3 +1,11 @@
+/*
+
+This code copies the content from one file to another using command-line arguments.
+
+[COMMAND TO RUN :- ./a.out input.txt output.txt]
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -45,3 +53,10 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+/*
+
+OUTPUT
+------------------------------------------------------------------
+File successfully copied
+
+*/
