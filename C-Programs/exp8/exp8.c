@@ -46,7 +46,7 @@ int main() {
     }
 
     // Count occurrences of vowels, spaces, tabs, and newlines
-    while ((ch = fgetc(fptr)) != EOF) {
+    while ((ch = fgetc(fptr)) != EOF) { // Read characters from the file until the end of the file (EOF) is reached
         if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
             vowels++;
         else if (ch == ' ')
