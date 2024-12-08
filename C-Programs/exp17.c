@@ -1,56 +1,83 @@
+/*
+
+This code allows you to store and display information about multiple students using a struct in C.
+
+getchar() is often used after scanf() to consume the newline character (\n) that remains in the input buffer when you enter data. 
+This is especially relevant when you switch between reading numbers and strings in C.
+
+*/
+
+
 #include <stdio.h>
-#include <string.h> // Include for string manipulation functions
 
-struct student
-{
-    char name[50];
-    char address[100];
-    char place[50];
+struct student {
+    char name[50], address[100], place[50];
     int pin;
-}s[10];
+};
 
-int main()
-{
+int main() {
     int n, i;
-    printf("Enter the number of students: ");
+    printf("Enter number of students: ");
     scanf("%d", &n);
-    getchar(); // To consume the newline character left by scanf
+    getchar(); // Consume newline after scanf
 
-    for(i = 0; i < n; i++)
-    {
-        printf("\n");
-        printf("Enter details of student %d\n", i + 1);
+    // Loop to input details of each student
+    for(i = 0; i < n; i++) {
+        printf("\nEnter details of student %d\n", i + 1);
 
         printf("Enter name: ");
-        fgets(s[i].name, sizeof(s[i].name), stdin);
-        // Remove trailing newline character if present
-        s[i].name[strcspn(s[i].name, "\n")] = '\0';
+        scanf("%[^\n]%*c", s[i].name);  // Reads string with spaces
 
         printf("Enter address: ");
-        fgets(s[i].address, sizeof(s[i].address), stdin);
-        s[i].address[strcspn(s[i].address, "\n")] = '\0';
+        scanf("%[^\n]%*c", s[i].address);
 
         printf("Enter place: ");
-        fgets(s[i].place, sizeof(s[i].place), stdin);
-        s[i].place[strcspn(s[i].place, "\n")] = '\0';
+        scanf("%[^\n]%*c", s[i].place);
 
         printf("Enter pin: ");
         scanf("%d", &s[i].pin);
-        getchar(); // To consume the newline character left by scanf
     }
 
-    printf("\n-------------------------------\n");
-    printf("Displaying information\n");    
-    printf("\n-------------------------------\n");
-    for(i = 0; i < n; i++)
-    {
-        printf("Name: %s\n", s[i].name);
-        printf("Address: %s\n", s[i].address);
-        printf("Place: %s\n", s[i].place);
-        printf("Pin: %d\n", s[i].pin);
-        printf("\n-------------------------------\n");
+    // Output the student details
+    printf("\nDisplaying student information:\n");
+    for(i = 0; i < n; i++) {
+        printf("\nName: %s\nAddress: %s\nPlace: %s\nPin: %d\n", 
+                s[i].name, s[i].address, s[i].place, s[i].pin);
     }
 
     return 0;
 }
 
+
+/*
+
+OUTPUT
+------------------------------------------------------------------------
+Enter number of students: 2
+
+Enter details of student 1
+Enter name: John Doe
+Enter address: 123 Main St
+Enter place: Springfield
+Enter pin: 12345
+
+Enter details of student 2
+Enter name: Jane Smith
+Enter address: 456 Oak Ave
+Enter place: Rivertown
+Enter pin: 67890
+
+
+Displaying student information:
+
+Name: John Doe
+Address: 123 Main St
+Place: Springfield
+Pin: 12345
+
+Name: Jane Smith
+Address: 456 Oak Ave
+Place: Rivertown
+Pin: 67890
+
+*/
