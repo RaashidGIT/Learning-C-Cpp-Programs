@@ -19,6 +19,79 @@ int circularQueue[MAX];
 int frontCircular = -1;
 int rearCircular = -1;
 
+// Main function
+int main() {
+    int ch, value, queueType;
+    do {
+        printf("\nSelect Queue Type:\n");
+        printf("1. Linear Queue\n2. Circular Queue\n3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &queueType);
+
+        switch(queueType) {
+            case 1:
+                do {
+                    printf("\n--------Linear Queue MENU--------\n");
+                    printf("1. Insert\n2. Delete\n3. Display\n4. Exit to Main Menu\n");
+                    printf("Enter your choice: ");
+                    scanf("%d", &ch);
+                    switch(ch) {
+                        case 1: 
+                            printf("\nValue to be inserted: ");
+                            scanf("%d", &value);
+                            enqueueLinear(value);
+                            break;
+                        case 2: 
+                            dequeueLinear();
+                            break;
+                        case 3: 
+                            displayLinear();
+                            break;
+                        case 4: 
+                            break;
+                        default: 
+                            printf("\nInvalid choice!");
+                    }
+                } while(ch != 4);
+                break;
+            
+            case 2:
+                do {
+                    printf("\n--------Circular Queue MENU--------\n");
+                    printf("1. Insert\n2. Delete\n3. Display\n4. Exit to Main Menu\n");
+                    printf("Enter your choice: ");
+                    scanf("%d", &ch);
+                    switch(ch) {
+                        case 1:
+                            printf("\nValue to be inserted: ");
+                            scanf("%d", &value);
+                            insertCircular(value);
+                            break;
+                        case 2:
+                            deleteCircular();
+                            break;
+                        case 3:
+                            displayCircular();
+                            break;
+                        case 4:
+                            break;
+                        default:
+                            printf("\nInvalid choice!");
+                    }
+                } while(ch != 4);
+                break;
+
+            case 3:
+                break;
+
+            default:
+                printf("\nInvalid choice! Exiting program.\n");
+        }
+    } while(queueType != 3);
+
+    return 0;
+}
+
 // Function to insert into the linear queue
 void enqueueLinear(int x) {
     if (rearLinear == SIZE - 1)
@@ -115,79 +188,6 @@ void displayCircular() {
             frontPos++;
         }
     }
-}
-
-// Main function
-int main() {
-    int ch, value, queueType;
-    do {
-        printf("\nSelect Queue Type:\n");
-        printf("1. Linear Queue\n2. Circular Queue\n3. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &queueType);
-
-        switch(queueType) {
-            case 1:
-                do {
-                    printf("\n--------Linear Queue MENU--------\n");
-                    printf("1. Insert\n2. Delete\n3. Display\n4. Exit to Main Menu\n");
-                    printf("Enter your choice: ");
-                    scanf("%d", &ch);
-                    switch(ch) {
-                        case 1: 
-                            printf("\nValue to be inserted: ");
-                            scanf("%d", &value);
-                            enqueueLinear(value);
-                            break;
-                        case 2: 
-                            dequeueLinear();
-                            break;
-                        case 3: 
-                            displayLinear();
-                            break;
-                        case 4: 
-                            break;
-                        default: 
-                            printf("\nInvalid choice!");
-                    }
-                } while(ch != 4);
-                break;
-            
-            case 2:
-                do {
-                    printf("\n--------Circular Queue MENU--------\n");
-                    printf("1. Insert\n2. Delete\n3. Display\n4. Exit to Main Menu\n");
-                    printf("Enter your choice: ");
-                    scanf("%d", &ch);
-                    switch(ch) {
-                        case 1:
-                            printf("\nValue to be inserted: ");
-                            scanf("%d", &value);
-                            insertCircular(value);
-                            break;
-                        case 2:
-                            deleteCircular();
-                            break;
-                        case 3:
-                            displayCircular();
-                            break;
-                        case 4:
-                            break;
-                        default:
-                            printf("\nInvalid choice!");
-                    }
-                } while(ch != 4);
-                break;
-
-            case 3:
-                break;
-
-            default:
-                printf("\nInvalid choice! Exiting program.\n");
-        }
-    } while(queueType != 3);
-
-    return 0;
 }
 
 /*
