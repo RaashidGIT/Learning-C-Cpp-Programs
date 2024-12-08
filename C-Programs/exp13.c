@@ -20,9 +20,17 @@ int main() {
     printf("Enter a substring: ");
     scanf(" %99[^\n]", sub); // Read the substring, consuming the newline from previous input
 
+    int str_len = strlen(str);
+    int sub_len = strlen(sub);
+
+    if (sub_len == 0) {
+        printf("The substring cannot be empty.\n");
+        return 1;
+    }
+
     // Iterate through the main string, checking for substring occurrences
-    for (int i = 0; i <= strlen(str) - strlen(sub); i++) { 
-        if (strncmp(&str[i], sub, strlen(sub)) == 0) { // Compare current substring with the input substring
+    for (int i = 0; i <= str_len - sub_len; i++) {
+        if (strncmp(&str[i], sub, sub_len) == 0) { // Compare current substring with the input substring
             count++; // Increment the counter if a match is found
         }
     }
