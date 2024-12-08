@@ -18,12 +18,12 @@ int main() {
     scanf("%s", str2);
 
     // DIRECT METHOD
-    // if (mystrcmp(str1, str2) == 0)
+    // if (strcmp(str1, str2) == 0)
     //     printf("Given Strings are same\n");
     // else
     //     printf("Given Strings are different\n");
-
-    if (strcmp(str1, str2) == 0)
+    
+    if (mystrcmp(str1, str2) == 0)
         printf("Given Strings are same\n");
     else
         printf("Given Strings are different\n");
