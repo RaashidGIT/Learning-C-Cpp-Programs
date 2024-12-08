@@ -1,3 +1,9 @@
+/*
+
+This program shows how to create and manage a circular linked list in C.
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -164,4 +170,3 @@ void display() {
         } while (ptr != head);
     }
 }
-
