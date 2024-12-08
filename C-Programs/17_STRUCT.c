@@ -7,7 +7,6 @@ This is especially relevant when you switch between reading numbers and strings 
 
 */
 
-
 #include <stdio.h>
 #include <string.h>
 
@@ -20,30 +19,24 @@ int main() {
     int n, i;
     printf("Enter number of students: ");
     scanf("%d", &n);
-    getchar();  // Consume the newline character left after reading the integer
+    getchar(); // Consume the newline character left after reading the integer
 
     // Loop to input details of each student
     for (i = 0; i < n; i++) {
         printf("\nEnter details of student %d\n", i + 1);
 
         printf("Enter name: ");
-        // Read name, including spaces, and consume the newline character
-        fgets(s[i].name, sizeof(s[i].name), stdin);
-        s[i].name[strcspn(s[i].name, "\n")] = '\0'; // Remove trailing newline
+        scanf(" %[^\n]", s[i].name); // Read the entire line, including spaces
 
         printf("Enter address: ");
-        // Read address, including spaces, and consume the newline character
-        fgets(s[i].address, sizeof(s[i].address), stdin);
-        s[i].address[strcspn(s[i].address, "\n")] = '\0'; // Remove trailing newline
+        scanf(" %[^\n]", s[i].address); 
 
         printf("Enter place: ");
-        // Read place, including spaces, and consume the newline character
-        fgets(s[i].place, sizeof(s[i].place), stdin);
-        s[i].place[strcspn(s[i].place, "\n")] = '\0'; // Remove trailing newline
+        scanf(" %[^\n]", s[i].place); 
 
         printf("Enter pin: ");
         scanf("%d", &s[i].pin);
-        getchar();  // Consume the newline character left after reading the integer
+        getchar(); // Consume the newline character left after reading the integer
     }
 
     // Output the student details
@@ -55,6 +48,55 @@ int main() {
 
     return 0;
 }
+
+
+// #include <stdio.h>
+// #include <string.h>
+
+// struct student {
+//     char name[50], address[100], place[50];
+//     int pin;
+// } s[10];
+
+// int main() {
+//     int n, i;
+//     printf("Enter number of students: ");
+//     scanf("%d", &n);
+//     getchar();  // Consume the newline character left after reading the integer
+
+//     // Loop to input details of each student
+//     for (i = 0; i < n; i++) {
+//         printf("\nEnter details of student %d\n", i + 1);
+
+//         printf("Enter name: ");
+//         // Read name, including spaces, and consume the newline character
+//         fgets(s[i].name, sizeof(s[i].name), stdin);
+//         s[i].name[strcspn(s[i].name, "\n")] = '\0'; // Remove trailing newline
+
+//         printf("Enter address: ");
+//         // Read address, including spaces, and consume the newline character
+//         fgets(s[i].address, sizeof(s[i].address), stdin);
+//         s[i].address[strcspn(s[i].address, "\n")] = '\0'; // Remove trailing newline
+
+//         printf("Enter place: ");
+//         // Read place, including spaces, and consume the newline character
+//         fgets(s[i].place, sizeof(s[i].place), stdin);
+//         s[i].place[strcspn(s[i].place, "\n")] = '\0'; // Remove trailing newline
+
+//         printf("Enter pin: ");
+//         scanf("%d", &s[i].pin);
+//         getchar();  // Consume the newline character left after reading the integer
+//     }
+
+//     // Output the student details
+//     printf("\nDisplaying student information:\n");
+//     for (i = 0; i < n; i++) {
+//         printf("\nName: %s\nAddress: %s\nPlace: %s\nPin: %d\n",
+//                s[i].name, s[i].address, s[i].place, s[i].pin);
+//     }
+
+//     return 0;
+// }
 
 /*
 
