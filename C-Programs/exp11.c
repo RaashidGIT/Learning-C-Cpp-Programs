@@ -18,7 +18,8 @@ int main() {
     len = strlen(s);
     
     for (i = 0; i < len / 2; i++) {
-        if (s[i] != s[len - i - 1]) {
+        // Compare the character at position i with the character at the corresponding position from the end of the string
+        if (s[i] != s[len - i - 1]) { 
             printf("String is not palindrome\n");
             return 0;
         }
