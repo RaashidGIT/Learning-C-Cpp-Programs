@@ -1,7 +1,43 @@
+/*
+
+This code implements a Max-Heap data structure using a static array in C. 
+A max-heap is a complete binary tree where each parent node is greater than or equal to its child nodes.
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
 int arr[100], n = 0;
+
+// Main function with menu-driven options
+int main() {
+    int choice, num;
+
+    while (1) {
+        printf("\n1.Insert\n2.Delete\n3.Display\n4.Quit\nEnter your choice: ");
+        scanf("%d", &choice);  // Take user input for the desired action
+        switch (choice) {
+            case 1:  // Insert option
+                printf("Enter the number to be inserted: ");
+                scanf("%d", &num);
+                insert(num);  // Call insert function to add element
+                break;
+            case 2:  // Delete option
+                printf("Enter the number to be deleted: ");
+                scanf("%d", &num);
+                del(num);  // Call delete function to remove element
+                break;
+            case 3:  // Display option
+                display();  // Show current heap
+                break;
+            case 4:  // Exit option
+                exit(0);  // Exit the program
+            default:
+                printf("Invalid choice\n");  // Handle invalid choice
+        }
+    }
+}
 
 // Function to display the current heap elements
 void display() {
@@ -92,31 +128,57 @@ void del(int num) {
     }
 }
 
-// Main function with menu-driven options
-int main() {
-    int choice, num;
+/*
 
-    while (1) {
-        printf("\n1.Insert\n2.Delete\n3.Display\n4.Quit\nEnter your choice: ");
-        scanf("%d", &choice);  // Take user input for the desired action
-        switch (choice) {
-            case 1:  // Insert option
-                printf("Enter the number to be inserted: ");
-                scanf("%d", &num);
-                insert(num);  // Call insert function to add element
-                break;
-            case 2:  // Delete option
-                printf("Enter the number to be deleted: ");
-                scanf("%d", &num);
-                del(num);  // Call delete function to remove element
-                break;
-            case 3:  // Display option
-                display();  // Show current heap
-                break;
-            case 4:  // Exit option
-                exit(0);  // Exit the program
-            default:
-                printf("Invalid choice\n");  // Handle invalid choice
-        }
-    }
-}
+OUTPUT
+----------------------------------------------------------------------------
+1.Insert
+2.Delete
+3.Display
+4.Quit
+Enter your choice: 1
+Enter the number to be inserted: 50
+
+1.Insert
+2.Delete
+3.Display
+4.Quit
+Enter your choice: 1
+Enter the number to be inserted: 30
+
+1.Insert
+2.Delete
+3.Display
+4.Quit
+Enter your choice: 1
+Enter the number to be inserted: 70
+
+1.Insert
+2.Delete
+3.Display
+4.Quit
+Enter your choice: 3
+70 30 50 
+
+1.Insert
+2.Delete
+3.Display
+4.Quit
+Enter your choice: 2
+Enter the number to be deleted: 30
+
+1.Insert
+2.Delete
+3.Display
+4.Quit
+Enter your choice: 3
+70 50 
+
+1.Insert
+2.Delete
+3.Display
+4.Quit
+Enter your choice: 4
+
+
+*/
