@@ -53,16 +53,17 @@ void beginsert() {
         printf("Enter the node data: ");
         scanf("%d", &item);
         ptr->data = item;
-        if (head == NULL) {
+
+        if (head == NULL) {  // If the list is empty
             head = ptr;
-            ptr->next = head;
+            ptr->next = head;  // Circular reference
         } else {
             temp = head;
             while (temp->next != head)
                 temp = temp->next;
-            temp->next = ptr;
-            ptr->next = head;
-            head = ptr;
+            temp->next = ptr;  // Link last node to new node
+            ptr->next = head;  // New node points to head
+            head = ptr;        // Update head
         }
         printf("\nNode inserted\n");
     }
@@ -78,16 +79,17 @@ void lastinsert() {
         printf("Enter data: ");
         scanf("%d", &item);
         ptr->data = item;
-        if (head == NULL) {
+
+        if (head == NULL) {  // If the list is empty
             head = ptr;
-            ptr->next = head;
+            ptr->next = head;  // Circular reference
         } else {
             temp = head;
             while (temp->next != head) {
                 temp = temp->next;
             }
-            temp->next = ptr;
-            ptr->next = head;
+            temp->next = ptr;  // Link last node to new node
+            ptr->next = head;  // New node points to head
         }
         printf("\nNode inserted\n");
     }
@@ -95,52 +97,54 @@ void lastinsert() {
 
 void begin_delete() {
     struct node *ptr;
-    if (head == NULL) {
+    if (head == NULL) {  // List is empty
         printf("\nUnderflow\n");
-    } else if (head->next == head) {
+    } else if (head->next == head) {  // Only one node
         free(head);
         head = NULL;
         printf("\nNode deleted\n");
-    } else {
+    } else {  // Multiple nodes
         ptr = head;
         while (ptr->next != head)
             ptr = ptr->next;
-        ptr->next = head->next;
-        free(head);
-        head = ptr->next;
+        ptr->next = head->next;  // Skip the first node
+        free(head);  // Delete the first node
+        head = ptr->next;  // Update head
         printf("\nNode deleted\n");
     }
 }
 
 void last_delete() {
     struct node *ptr, *preptr;
-    if (head == NULL) {
+    if (head == NULL) {  // List is empty
         printf("Underflow\n");
-    } else if (head->next == head) {
+    } else if (head->next == head) {  // Only one node
         free(head);
         head = NULL;
         printf("\nNode deleted\n");
-    } else {
+    } else {  // Multiple nodes
         ptr = head;
         while (ptr->next != head) {
             preptr = ptr;
             ptr = ptr->next;
         }
-        preptr->next = head;
-        free(ptr);
+        preptr->next = head;  // Update last node
+        free(ptr);  // Delete last node
         printf("\nNode deleted\n");
     }
 }
 
-void search() {
+void search() { // Searches for a specific item in the list and prints the location(s).
     struct node *ptr;
     int item, i = 0, flag = 1;
     ptr = head;
+
     if (ptr == NULL) {
         printf("Empty list\n");
     } else {
         printf("Item you want to search: ");
         scanf("%d", &item);
+
         do {
             if (ptr->data == item) {
                 printf("Item found at location: %d\n", i + 1);
@@ -150,14 +154,14 @@ void search() {
             i++;
             ptr = ptr->next;
         } while (ptr != head);
-        
+
         if (flag != 0) {
             printf("Item not found\n");
         }
     }
 }
 
-void display() {
+void display() { // Traverses the list and prints each node's data.
     struct node *ptr;
     ptr = head;
     if (head == NULL) {
@@ -170,3 +174,34 @@ void display() {
         } while (ptr != head);
     }
 }
+
+/*
+
+OUTPUT
+----------------------------------------------------------------------------
+---------------MAIN MENU----------------
+1-Insert in beginning
+2-Insert at last
+3-Delete from beginning
+4-Delete from last
+5-Search
+6-Show
+7-Exit
+
+Enter choice: 1
+Enter the node data: 10
+
+Node inserted
+
+Enter choice: 2
+Enter data: 20
+
+Node inserted
+
+Enter choice: 6
+
+Printing values---
+10
+20
+
+*/
