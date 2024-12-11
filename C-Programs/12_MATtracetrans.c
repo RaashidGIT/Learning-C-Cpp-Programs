@@ -2,6 +2,8 @@
 
 This code performs the following operations on a square matrix: Trace & Transpose.
 
+Transpose means swapping rows and columns.
+The trace of a matrix is the sum of its diagonal elements (top-left to bottom-right).
 
 */
 
