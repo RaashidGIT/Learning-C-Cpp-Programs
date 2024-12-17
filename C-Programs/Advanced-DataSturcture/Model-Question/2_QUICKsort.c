@@ -3,7 +3,6 @@
 void quickSort(int arr[], int low, int high);
 void swap(int *a, int *b);
 int partition(int arr[], int low, int high);
-void printArray(int arr[], int n);
 
 int main() {
     int n;
@@ -11,20 +10,24 @@ int main() {
     printf("Enter the number of elements: ");
     scanf("%d", &n);
 
-    int arr1[n], arr2[n];
+    int arr[n];
 
     printf("Enter %d elements: ", n);
     for (int i = 0; i < n; i++) {
-        scanf("%d", &arr1[i]);
-        arr2[i] = arr1[i]; 
+        scanf("%d", &arr[i]);
     }
 
     printf("\nOriginal Array for Quick Sort: ");
-    printArray(arr2, n);
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
 
-    quickSort(arr2, 0, n - 1);
+    quickSort(arr, 0, n - 1);
+
     printf("Sorted Array using Quick Sort: ");
-    printArray(arr2, n);
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
 
     return 0;
 }
@@ -55,11 +58,5 @@ void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;
     *b = temp;
-}
-
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
 }
 
