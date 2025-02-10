@@ -1,9 +1,0 @@
-Hello World!
-This is a demo file.
-It contains various types of characters:
-    - Vowels
-    - Spaces
-    - Tabs
-    - Newlines
-
-End of file.
