@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the programs developed as part of the C and C++ Programming Lab for the M.Sc. degree at St. Joseph's College (Autonomous), Devagiri. The applications demonstrate various algorithms and data structures fundamental to C and C++ programming.
+This repository contains the programs developed as part of the C and C++ Programming Lab for the MSc-Computer Science degree at St. Joseph's College (Autonomous), Devagiri. The applications demonstrate various algorithms and data structures fundamental to C and C++ programming.
 
 ## Table of Contents
 
