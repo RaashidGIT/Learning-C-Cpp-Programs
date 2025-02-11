@@ -51,16 +51,7 @@ Run the compiled program:
 
 # Project Structure
 
-c-cpp-programming-lab/
-├── C/
-│   ├── program1.c
-│   ├── program2.c
-│   └── ...
-├── C++/
-│   ├── program1.cpp
-│   ├── program2.cpp
-│   └── ...
-└── README.md
+<pre> ``` c-cpp-programming-lab/ ├── C/ │ ├── program1.c │ ├── program2.c │ └── ... ├── C++/ │ ├── program1.cpp │ ├── program2.cpp │ └── ... └── README.md ``` </pre>
 
 # Setup Instructions
 Ensure that all prerequisites are installed.
