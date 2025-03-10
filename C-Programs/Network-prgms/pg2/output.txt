@@ -1,0 +1,45 @@
+// server
+
+Bind done
+
+Waiting for incoming connection...
+
+Connection accepted
+
+From Client:
+HelloServer
+
+To Client:
+HelloClient
+
+From Client:
+HowAreYou
+
+To Client:
+I'mFine
+
+From Client:
+Bye
+
+To Client:
+Goodbye
+
+// client
+
+To Server:
+HelloServer
+
+From Server:
+HelloClient
+
+To Server:
+HowAreYou
+
+From Server:
+I'mFine
+
+To Server:
+Bye
+
+From Server:
+Goodbye
