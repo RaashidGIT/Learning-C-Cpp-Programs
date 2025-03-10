@@ -1,0 +1,19 @@
+-------------------------- //server ---------------------------
+
+Server is listening on port 8080...
+
+Received from client: Hello, UDP Server!
+Echoed back to client: Hello, UDP Server!
+
+Received from client: How are you?
+Echoed back to client: How are you?
+
+------------------------- //client -----------------------------
+
+Enter a string to send to the server: Hello, UDP Server!
+Message sent to server: Hello, UDP Server!
+Received from server: Hello, UDP Server!
+
+Enter a string to send to the server: How are you?
+Message sent to server: How are you?
+Received from server: How are you?
