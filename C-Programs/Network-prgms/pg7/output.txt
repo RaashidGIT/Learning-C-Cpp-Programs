@@ -1,0 +1,17 @@
+------------------// server ---------------------------
+
+Server listening on port 8888...
+
+Client connected.
+
+Receiving file: example.txt
+
+File received successfully.
+
+-----------------// client --------------------------
+
+Connected to server.
+
+Enter the file name to send: example.txt
+
+File sent successfully.
