@@ -1,0 +1,18 @@
+----------------------------------- //server ---------------------------------------------
+
+Bind done. Waiting for data...
+
+Receiving file: example.txt
+Received 1024 bytes
+Received 1024 bytes
+Received 512 bytes
+End of file received.
+File received successfully.
+
+----------------------------------- //client ----------------------------------------------
+
+Enter the file name to send: example.txt
+Sent 1024 bytes
+Sent 1024 bytes
+Sent 512 bytes
+File sent successfully.
