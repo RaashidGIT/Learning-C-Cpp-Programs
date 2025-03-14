@@ -70,4 +70,15 @@ int main() {
         fwrite(buffer, 1, n, file);
     }
 
-    i
+    if (n < 0) {
+        perror("Receive failed");
+    }
+
+    printf("File received successfully.\n");
+
+    fclose(file);
+    close(client_sock);
+    close(server_sock);
+
+    return 0;
+}
