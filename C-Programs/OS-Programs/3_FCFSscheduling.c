@@ -7,24 +7,18 @@
 
 #include <stdio.h>
 
-// Structure to hold process data
 struct process {
-    int id;        // Process ID
-    int arrival;   // Arrival Time
-    int burst;     // Burst Time
-    int wait;      // Waiting Time
-    int comp;      // Completion Time
-    int tottime;   // Turnaround Time
+    int id, wait, burst, tottime, comp, arrival;
 } p[20];
 
-int main() {
-    int n, i;
+void main() {
+    int i, n;
     float totwait = 0, totturnaround = 0, avwait, avturn;
-
+    
     // Input number of processes
     printf("Enter the number of processes: ");
     scanf("%d", &n);
-
+    
     // Input details for each process
     for (i = 0; i < n; i++) {
         printf("\nEnter process ID: ");
@@ -33,51 +27,49 @@ int main() {
         scanf("%d", &p[i].arrival);
         printf("Enter process burst time: ");
         scanf("%d", &p[i].burst);
-
-        // Initialize times
-        p[i].wait = 0;
-        p[i].comp = 0;
-        p[i].tottime = 0;
+        p[i].wait = 0; // Initialize wait time
+        p[i].comp = 0; // Initialize completion time
+        p[i].tottime = 0; // Initialize turnaround time
     }
 
-    // First process setup
-    p[0].wait = 0;
-    p[0].comp = p[0].arrival + p[0].burst;
-
-    // Calculate times for the rest of the processes
+    // Calculate waiting time, turnaround time, and completion time
+    p[0].wait = 0;  // First process always has wait time 0
+    p[0].comp = p[0].arrival + p[0].burst;  // Completion time = arrival time + burst time for the first process
+    
     for (i = 1; i < n; i++) {
-        if (p[i].arrival > p[i - 1].comp) {
-            // If CPU is idle
-            p[i].wait = 0;
-            p[i].comp = p[i].arrival + p[i].burst;
+        // Wait time for process i is the time spent waiting before it starts execution
+        if (p[i].arrival > p[i-1].comp) {
+            // If the arrival time of the current process is greater than the completion time of the previous process
+            p[i].wait = 0; // It will not wait
         } else {
-            p[i].wait = p[i - 1].comp - p[i].arrival;
-            p[i].comp = p[i - 1].comp + p[i].burst;
+            // Otherwise, it waits until the previous process finishes
+            p[i].wait = p[i-1].comp - p[i].arrival;
         }
+        
+        p[i].comp = p[i].arrival + p[i].wait + p[i].burst;  // Completion time = arrival time + wait time + burst time
     }
 
-    // Compute turnaround and total times
+    // Calculate total wait time and total turnaround time
     for (i = 0; i < n; i++) {
-        p[i].tottime = p[i].comp - p[i].arrival;
+        p[i].tottime = p[i].comp - p[i].arrival;  // Turnaround time = completion time - arrival time
         totwait += p[i].wait;
         totturnaround += p[i].tottime;
     }
 
-    // Averages
-    avwait = totwait / n;
-    avturn = totturnaround / n;
+    // Calculate average waiting time and average turnaround time
+    avwait = totwait / n;  // Calculate average wait time
+    avturn = totturnaround / n;   // Calculate average turnaround time
 
-    // Output
+    // Print process details including Completion Time, Burst Time, and Turnaround Time
     printf("\nID\tBurst Time\tArrival Time\tWait Time\tTurnaround Time\tCompletion Time");
     for (i = 0; i < n; i++) {
         printf("\n%d\t%d\t\t%d\t\t%d\t\t%d\t\t%d", 
                p[i].id, p[i].burst, p[i].arrival, p[i].wait, p[i].tottime, p[i].comp);
     }
 
+    // Print averages with 1 decimal point
     printf("\nAverage Waiting Time: %.1f", avwait);
     printf("\nAverage Turnaround Time: %.1f\n", avturn);
-
-    return 0;
 }
 
 /*
