@@ -1,56 +1,83 @@
-#include<stdio.h>
+/*
+ * AIM:
+ * This program calculates the Waiting Time, Turnaround Time, and Completion Time
+ * for a set of processes using First-Come First-Served (FCFS) scheduling.
+ * It also computes the average waiting and turnaround times.
+ */
 
-// Structure to represent a process with its ID, wait time, service time, and total turnaround time
+#include <stdio.h>
+
+// Structure to hold process data
 struct process {
-    int id, wait, ser, tottime;
+    int id;        // Process ID
+    int arrival;   // Arrival Time
+    int burst;     // Burst Time
+    int wait;      // Waiting Time
+    int comp;      // Completion Time
+    int tottime;   // Turnaround Time
 } p[20];
 
-void main() {
-    int i, n, totwait = 0, totser = 0, avturn, avwait;
+int main() {
+    int n, i;
+    float totwait = 0, totturnaround = 0, avwait, avturn;
 
-    // Prompt the user to enter the number of processes
-    printf("Enter the number of processes:\n");
+    // Input number of processes
+    printf("Enter the number of processes: ");
     scanf("%d", &n);
 
-    // Input process details: ID and service time
+    // Input details for each process
     for (i = 0; i < n; i++) {
-        printf("\nEnter process id:\n");
+        printf("\nEnter process ID: ");
         scanf("%d", &p[i].id);
-        printf("Enter service time:\n");
-        scanf("%d", &p[i].ser);
+        printf("Enter process arrival time: ");
+        scanf("%d", &p[i].arrival);
+        printf("Enter process burst time: ");
+        scanf("%d", &p[i].burst);
+
+        // Initialize times
+        p[i].wait = 0;
+        p[i].comp = 0;
+        p[i].tottime = 0;
     }
 
-    // Initialize the waiting time for the first process (it's always 0)
+    // First process setup
     p[0].wait = 0;
-    p[0].tottime = p[0].ser; // Total turnaround time for the first process is its service time
+    p[0].comp = p[0].arrival + p[0].burst;
 
-    // Calculate waiting time and turnaround time for each process
+    // Calculate times for the rest of the processes
     for (i = 1; i < n; i++) {
-        // Waiting time for the current process is the sum of the service times of all previous processes
-        p[i].wait = p[i - 1].wait + p[i - 1].ser;
-        // Total turnaround time is the wait time plus the service time for the current process
-        p[i].tottime = p[i].wait + p[i].ser;
+        if (p[i].arrival > p[i - 1].comp) {
+            // If CPU is idle
+            p[i].wait = 0;
+            p[i].comp = p[i].arrival + p[i].burst;
+        } else {
+            p[i].wait = p[i - 1].comp - p[i].arrival;
+            p[i].comp = p[i - 1].comp + p[i].burst;
+        }
     }
 
-    // Calculate total waiting time and total turnaround time for all processes
+    // Compute turnaround and total times
     for (i = 0; i < n; i++) {
+        p[i].tottime = p[i].comp - p[i].arrival;
         totwait += p[i].wait;
-        totser += p[i].tottime;
+        totturnaround += p[i].tottime;
     }
 
-    // Calculate average waiting time and average turnaround time
-    avturn = totser / n;
+    // Averages
     avwait = totwait / n;
+    avturn = totturnaround / n;
 
-    // Display the process table
-    printf("\nID\t\tService\t\tWait\t\tTotal\n");
+    // Output
+    printf("\nID\tBurst Time\tArrival Time\tWait Time\tTurnaround Time\tCompletion Time");
     for (i = 0; i < n; i++) {
-        printf("%d\t\t%d\t\t%d\t\t%d\n", p[i].id, p[i].ser, p[i].wait, p[i].tottime);
+        printf("\n%d\t%d\t\t%d\t\t%d\t\t%d\t\t%d", 
+               p[i].id, p[i].burst, p[i].arrival, p[i].wait, p[i].tottime, p[i].comp);
     }
 
-    // Display average waiting time and average turnaround time
-    printf("Average waiting time: %d\n", avwait);
-    printf("Average turnaround time: %d\n", avturn);
+    printf("\nAverage Waiting Time: %.1f", avwait);
+    printf("\nAverage Turnaround Time: %.1f\n", avturn);
+
+    return 0;
 }
 
 /*
