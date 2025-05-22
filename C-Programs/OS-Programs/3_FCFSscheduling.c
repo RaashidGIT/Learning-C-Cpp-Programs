@@ -84,30 +84,26 @@ int main() {
 
 ----------------------- OUTPUT ----------------------------------
 
-  Enter the number of processes:
-  3
- 
-  Enter process id:
-  1
-  Enter service time:
-  5
- 
-  Enter process id:
-  2
-  Enter service time:
-  3
- 
-  Enter process id:
-  3
-  Enter service time:
-  8
- 
-  ID              Service         Wait            Total
-  1               5               0               5
-  2               3               5               8
-  3               8               8               16
- 
-  Average waiting time: 4
-  Average turnaround time: 9
+Enter the number of processes: 3
+
+Enter process ID: 1
+Enter process arrival time: 0
+Enter process burst time: 4
+
+Enter process ID: 2
+Enter process arrival time: 1
+Enter process burst time: 3
+
+Enter process ID: 3
+Enter process arrival time: 
+2
+Enter process burst time: 1
+
+ID	Burst Time	Arrival Time	Wait Time	Turnaround Time	Completion Time
+1	    4	        0	            0	        4		           4
+2	    3	        1	            3	        6		           7
+3	    1	        2	            5	        6		           8
+Average Waiting Time: 2.7
+Average Turnaround Time: 5.3
  
 */
