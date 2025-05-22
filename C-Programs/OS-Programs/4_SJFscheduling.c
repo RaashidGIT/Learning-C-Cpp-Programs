@@ -1,105 +1,110 @@
 /*
+ * AIM:
+ * This program implements the Shortest Job First (SJF) Non-Preemptive Scheduling Algorithm.
+ * It calculates waiting time, turnaround time, and completion time for each process.
+ */
 
- * This program implements the Shortest Job First (SJF) scheduling algorithm in C.
- * It calculates the waiting time and turnaround time for a set of processes based on their service time.
+#include <stdio.h>
+#include <stdbool.h>
 
-*/
-
-#include<stdio.h>
-
-// Structure to represent a process in the scheduling queue
-struct ff {
-    int pid;    // Process ID
-    int wait;   // Waiting time
-    int ser;    // Service time (burst time)
-    int temp;   // Temporary variable for sorting (optional, not used in the final logic)
-} p[20], temp;
+// Structure to hold process information
+struct process {
+    int id, wait, burst, tottime, comp, arrival;
+    bool completed; // To mark whether the process is completed
+} p[20];
 
 void main() {
-    int i, j, n, tot = 0, totwait = 0, avwait, tturn = 0, aturn;
+    int n, i, j, completed = 0, time = 0, minBurst;
+    float totwait = 0, totturnaround = 0, avwait, avturn;
 
-    // Input: Number of processes
-    printf("Enter no of processes\n");
+    // Input number of processes
+    printf("Enter the number of processes: ");
     scanf("%d", &n);
 
-    // Input: Process ID and service time for each process
+    // Input details for each process
     for (i = 0; i < n; i++) {
-        printf("Enter the process id\n");
-        scanf("%d", &p[i].pid);
-        printf("Enter service time\n");
-        scanf("%d", &p[i].ser);
-        p[i].wait = 0; // Initialize waiting time to 0
+        printf("\nEnter process ID: ");
+        scanf("%d", &p[i].id);
+        printf("Enter process arrival time: ");
+        scanf("%d", &p[i].arrival);
+        printf("Enter process burst time: ");
+        scanf("%d", &p[i].burst);
+        p[i].wait = 0;
+        p[i].comp = 0;
+        p[i].tottime = 0;
+        p[i].completed = false;
     }
 
-    // Sorting processes by their service time using Bubble Sort
-    for (i = 0; i < n; i++) {
-        for (j = i + 1; j < n; j++) {
-            if (p[i].ser > p[j].ser) {
-                temp = p[i];
-                p[i] = p[j];
-                p[j] = temp;
+    // SJF Scheduling Logic
+    while (completed < n) {
+        int shortest = -1;
+        minBurst = 9999;
+
+        // Find the process with the shortest burst time that has arrived and is not completed
+        for (i = 0; i < n; i++) {
+            if (p[i].arrival <= time && !p[i].completed && p[i].burst < minBurst) {
+                minBurst = p[i].burst;
+                shortest = i;
             }
         }
-    }
 
-    // Display header for process table
-    printf("\n\nPID\t SER\t WAIT\t TOT\t\n");
+        if (shortest != -1) {
+            // Process the selected shortest job
+            time += p[shortest].burst;
+            p[shortest].comp = time;
+            p[shortest].tottime = p[shortest].comp - p[shortest].arrival;
+            p[shortest].wait = p[shortest].tottime - p[shortest].burst;
+            p[shortest].completed = true;
 
-    // Calculate waiting time and turnaround time for each process
-    for (i = 0; i < n; i++) {
-        tot = tot + p[i].ser;       // Update total service time (cumulative)
-        tturn = tturn + tot;       // Update total turnaround time
-        if (i + 1 < n) {
-            p[i + 1].wait = tot;  // Set the waiting time for the next process
+            // Update totals
+            totwait += p[shortest].wait;
+            totturnaround += p[shortest].tottime;
+            completed++;
+        } else {
+            // If no process is ready to execute, advance time
+            time++;
         }
-        totwait = totwait + p[i].wait; // Update total waiting time
-
-        // Display process details
-        printf("%d\t %d\t %d\t %d\t\n", p[i].pid, p[i].ser, p[i].wait, tot);
     }
 
-    // Calculate average waiting time and turnaround time
+    // Calculate averages
     avwait = totwait / n;
-    aturn = tturn / n;
+    avturn = totturnaround / n;
 
-    // Display total and average metrics
-    printf("\nTotal waiting time: %d\n", totwait);
-    printf("Average waiting time: %d\n", avwait);
-    printf("Total turnaround time: %d\n", tturn);
-    printf("Average turnaround time: %d\n", aturn);
+    // Print process details
+    printf("\nID\tBurst Time\tArrival Time\tWait Time\tTurnaround Time\tCompletion Time");
+    for (i = 0; i < n; i++) {
+        printf("\n%d\t%d\t\t%d\t\t%d\t\t%d\t\t%d",
+               p[i].id, p[i].burst, p[i].arrival, p[i].wait, p[i].tottime, p[i].comp);
+    }
+
+    // Print averages
+    printf("\nAverage Waiting Time: %.1f", avwait);
+    printf("\nAverage Turnaround Time: %.1f\n", avturn);
 }
 
 /*
 
 --------------------- OUTPUT ---------------------------
 
- Enter no of processes
- 3
+Enter the number of processes: 3
 
- Enter the process id
- 1
- Enter service time
- 5
+Enter process ID: 1
+Enter process arrival time: 0
+Enter process burst time: 5
 
- Enter the process id
- 2
- Enter service time
- 2
+Enter process ID: 2
+Enter process arrival time: 2
+Enter process burst time: 3
 
- Enter the process id
- 3
- Enter service time
- 8
+Enter process ID: 3
+Enter process arrival time: 4
+Enter process burst time: 1
 
-
- PID     SER     WAIT    TOT
- 2       2       0       2
- 1       5       2       7
- 3       8       7       15
-
- Total waiting time: 9
- Average waiting time: 3
- Total turnaround time: 24
- Average turnaround time: 8
+ID	Burst Time	Arrival Time	Wait Time	Turnaround Time	Completion Time
+1	    5		    0		        0		        5		    5
+2	    3		    2		        4		        7		    9
+3	    1		    4		        1		        2		    6
+Average Waiting Time: 1.7
+Average Turnaround Time: 4.7
 
 */
