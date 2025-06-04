@@ -43,12 +43,12 @@ int main(int argc, char *argv[]) {
 /*
  * Simulated Output:
  *
- * Running the program with `ls -l` as the command:
- * 
- * $ ./my_exec ls -l
- * total 12
- * -rwxr-xr-x 1 user user  16784 Mar 23 12:00 my_exec
- * -rw-r--r-- 1 user user   1024 Mar 23 11:59 program.c
+ * Running the program with `./a.out /bin/ls - l` as the command:
+
+ 4 a.c	12 a.out   4 fork.c
+
+	 Completed!
+
  * 
  * Process creation completed
  *
