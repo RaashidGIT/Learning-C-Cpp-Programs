@@ -3,6 +3,29 @@
  * This program creates a new process using fork(). The child process executes 
  * a specified command using execvp(), while the parent process waits for the 
  * child to complete before printing a completion message.
+
+Algorithm: Execute a Program in a Child Process
+
+1. Start
+2. Check if the user has provided at least one argument (the program to execute):
+    - If argc < 2:
+        - Print "Usage: <program_name> <program_to_execute> [args...]"
+        - Exit with failure code.
+3. Create a child process using fork():
+    - If pid < 0 (fork failed):
+        - Print "Fork failed"
+        - Exit with failure code.
+4. Parent process (pid > 0):
+    - Wait for the child process to finish using wait().
+    - Print "Process creation completed".
+    - Exit successfully.
+5. Child process (pid == 0):
+    - Execute the command passed as arguments using execvp(argv[1], &argv[1]).
+    - If execvp fails:
+        - Print "execvp failed".
+        - Exit with failure code.
+6. End
+
  */
 
 #include <stdio.h>
