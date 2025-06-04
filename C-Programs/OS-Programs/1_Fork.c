@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
 /*
  * Simulated Output:
  *
- * Running the program with `./a.out /bin/ls - l` as the command:
+ * Running the program with `./a.out /ls` as the command:
 
  4 a.c	12 a.out   4 fork.c
 
