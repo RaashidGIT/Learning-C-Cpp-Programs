@@ -190,9 +190,9 @@ Enter process arrival time: 4
 Enter process burst time: 1
 
 ID	Burst Time	Arrival Time	Wait Time	Turnaround Time	Completion Time
-1	    5		    0		        0		        5		    5
-2	    3		    2		        4		        7		    9
-3	    1		    4		        1		        2		    6
+1	    5		    0		        0		       5		    5
+2	    3		    2		        4		       7		    9
+3	    1		    4		        1		       2		    6
 Average Waiting Time: 1.7
 Average Turnaround Time: 4.7
 
