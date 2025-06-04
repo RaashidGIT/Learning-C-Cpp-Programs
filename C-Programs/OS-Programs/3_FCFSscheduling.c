@@ -113,7 +113,7 @@ void main() {
         p[i].comp = p[i].arrival + p[i].wait + p[i].burst;  // Completion time = arrival time + wait time + burst time
     }
 
-    // Calculate total wait time and total turnaround time
+    // Calculate total wait time, turnaround time and total turnaround time
     for (i = 0; i < n; i++) {
         p[i].tottime = p[i].comp - p[i].arrival;  // Turnaround time = completion time - arrival time
         totwait += p[i].wait;
