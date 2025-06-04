@@ -33,6 +33,7 @@
 
 * `completed = 0`: Tracks the number of processes that have completed execution.
 * `time = 0`: Represents the current system time (or clock time).
+* 'shortest = -1': An impossibly small value that will be used to find the shortest job id.
 * `minBurst = 9999`: A large value that will be used to find the shortest burst time.
 2. **Process Scheduling Loop**:
 
