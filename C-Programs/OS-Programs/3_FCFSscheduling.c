@@ -151,8 +151,7 @@ Enter process arrival time: 1
 Enter process burst time: 3
 
 Enter process ID: 3
-Enter process arrival time: 
-2
+Enter process arrival time: 2
 Enter process burst time: 1
 
 ID	Burst Time	Arrival Time	Wait Time	Turnaround Time	Completion Time
