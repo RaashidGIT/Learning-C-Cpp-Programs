@@ -104,9 +104,9 @@ Enter process burst time: 4
 Enter process priority (higher value = higher priority): 1
 
 ID	Burst Time	Arrival Time	Priority	Wait Time	Turnaround Time	Completion Time
-1	    5		    0		        2		    0		        5		    5
-2	    3		    1		        3		    4		        7		    8
-3	    4		    2		        1		    6		        10		    12
+1	    5		    0		        2		    0		      5		    5
+2	    3		    1		        3		    4		      7		    8
+3	    4		    2		        1		    6		      10		12
 
 Average Waiting Time: 3.3
 Average Turnaround Time: 7.3
