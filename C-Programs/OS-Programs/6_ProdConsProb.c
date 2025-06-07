@@ -2,6 +2,87 @@
     Aim:
     To simulate the Producer-Consumer problem using semaphores in C, demonstrating how synchronization 
     is handled in a concurrent environment using manual semaphore logic and a circular buffer.
+
+## 🧠 **Algorithm: Producer–Consumer Problem using Semaphores (Non-threaded Simulation in C)**
+
+### 🔹 **Step 1: Initialize Global Resources**
+
+1. Define `BUFFER_SIZE` as the maximum number of items the buffer can hold.
+2. Initialize semaphores:
+
+   * `mutex = 1` → ensures **mutual exclusion** for buffer access.
+   * `empty = BUFFER_SIZE` → counts available **empty slots** in buffer.
+   * `full = 0` → counts available **filled slots**.
+3. Initialize a `buffer[]` array of size `BUFFER_SIZE`.
+4. Set `in = 0` and `out = 0` to manage circular indexing for producer and consumer respectively.
+
+---
+
+### 🔹 **Step 2: Define Semaphore Operations**
+
+1. `wait(S)`:
+
+   * If `S <= 0`, the process **waits** (here, simulated by a busy-wait).
+   * Else, decrement `S` (i.e., `S--`).
+2. `signal(S)`:
+
+   * Increment the semaphore value (`S++`).
+
+---
+
+### 🔹 **Step 3: Producer Algorithm**
+
+1. Check if `empty == 0`:
+
+   * If true, print `"Buffer is full"` and return.
+2. Accept input item from the user.
+3. Perform:
+
+   * `wait(empty)` → ensure space is available.
+   * `wait(mutex)` → enter **critical section**.
+4. Place the item into `buffer[in]`.
+5. Update `in = (in + 1) % BUFFER_SIZE` (circular buffer logic).
+6. Perform:
+
+   * `signal(mutex)` → exit critical section.
+   * `signal(full)` → indicate a new item was added.
+7. Print confirmation: `"Produced item: X"`.
+
+---
+
+### 🔹 **Step 4: Consumer Algorithm**
+
+1. Check if `full == 0`:
+
+   * If true, print `"Buffer is empty"` and return.
+2. Perform:
+
+   * `wait(full)` → ensure item is available.
+   * `wait(mutex)` → enter **critical section**.
+3. Retrieve item from `buffer[out]`.
+4. Update `out = (out + 1) % BUFFER_SIZE`.
+5. Perform:
+
+   * `signal(mutex)` → exit critical section.
+   * `signal(empty)` → indicate a slot is now free.
+6. Print confirmation: `"Consumed item: X"`.
+
+---
+
+### 🔹 **Step 5: Main Menu Loop**
+
+1. Show options:
+
+   * `1. Producer`
+   * `2. Consumer`
+   * `3. Exit`
+2. Read user’s choice and:
+
+   * Call `producer()` if `1`.
+   * Call `consumer()` if `2`.
+   * Exit program if `3`.
+   * Show error message if invalid choice.
+
 */
 
 #include <stdio.h>
