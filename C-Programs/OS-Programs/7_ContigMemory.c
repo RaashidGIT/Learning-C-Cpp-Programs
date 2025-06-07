@@ -120,25 +120,38 @@ Any more allocation? (1. Yes, 2. No): 1
 Enter file name (max 3 characters): B
 Enter the start block: 6
 Enter number of blocks: 3
-Contiguous allocation not possible.
+Allocation done.
 Any more allocation? (1. Yes, 2. No): 1
 
-Enter file name (max 3 characters): B
+Enter file name (max 3 characters): C
 Enter the start block: 10
 Enter number of blocks: 3
+Allocation done.
+Any more allocation? (1. Yes, 2. No): 1
+
+Enter file name (max 3 characters): D
+Enter the start block: 7
+Enter number of blocks: 8
+Contiguous allocation not possible.
+
+Enter file name (max 3 characters): E
+Enter the start block: 18
+Enter number of blocks: 1
 Allocation done.
 Any more allocation? (1. Yes, 2. No): 2
 
 Contiguous Allocation:
 
 File    Start   Length
-A       2       4
-B       10      3
+A         2          4
+B         6          3
+C        10          3
+E        18          1
 
 Disk space after allocation:
 
 Disk Space:
    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
-   .   .   A   A   A   A   .   .   .   .   B   B   B   .   .   .   .   .   .   .
+   .   .   A   A   A   A   B   B   B   .   C   C   C   .   .   .   .   .   E   .
 
 */
