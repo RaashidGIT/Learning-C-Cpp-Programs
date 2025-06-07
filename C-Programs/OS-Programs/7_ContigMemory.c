@@ -7,7 +7,6 @@
 #include <stdio.h>      // Standard I/O functions
 #include <string.h>     // For string manipulation functions like strcpy()
 
-// Global declarations
 int num = 0;            // Counter for number of files
 int len[10];            // Stores the length (number of blocks) for each file
 int str[10];            // Stores the start index of each file
@@ -27,7 +26,8 @@ void display() {
 
     // Print block indices 0 to 19
     for (int i = 0; i < 20; i++)
-        printf("%4d", i);
+        printf("%4d", i); // ensures that the integer i is printed in a column-like fashion, 
+                          // aligning numbers to the right within a field of at least 4 characters.
     printf("\n");
 
     // Print file names or "." for each block
