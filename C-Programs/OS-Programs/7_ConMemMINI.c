@@ -1,5 +1,10 @@
+/*
+    Aim: To simulate contiguous memory allocation in file systems.
+         This program allocates memory blocks to files using contiguous allocation,
+         checks for available space, and displays a directory and disk status.
 
-
+    MINI VERSION - REPLACED MULTIPLE STRING ID WITH A SINGLE STRING ID TO SIMPLIFY THE PROGRAM!
+*/
 
 #include <stdio.h>      // Standard I/O functions
 
