@@ -43,7 +43,7 @@ int main() {
         printf("Size of hole H%d: ", i);
         scanf("%d", &h[i].size);
         h[i].actual = h[i].size;  // Store original size
-        h[i].id = i;              // Assign hole ID
+        h[i].id = i;              // Assign hole ID (In order to track the hole, even after rearrangement)
     }
 
     // Input number of processes
