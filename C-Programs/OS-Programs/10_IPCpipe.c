@@ -21,7 +21,7 @@ int is_prime(int n) {
 
 int main() {
     int pfd[2];         // Array to hold pipe file descriptors: pfd[0] = read end, pfd[1] = write end
-    pid_t pid;
+    pid_t pid;          // Necessary for fork() system call
 
     // Create the pipe
     if (pipe(pfd) == -1) {
