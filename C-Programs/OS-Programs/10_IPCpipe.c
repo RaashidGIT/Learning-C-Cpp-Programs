@@ -70,6 +70,9 @@ int main() {
 
 /*
 
+-------------------------------SIMULATED OUTPUT---------------------------------
 
+Parent prints Fibonacci numbers that are prime:
+2       3       5       13      89      233     1597    28657
 
 */
