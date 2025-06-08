@@ -62,8 +62,8 @@ int main() {
         sortHoles(h, nh);  // Sort holes before each allocation attempt
 
         // Try to allocate the current process to the smallest suitable hole
-        for (int j = 0; j < nh && !p[i].flag; j++) {
-            if (p[i].size <= h[j].size) {
+        for (int j = 0; j < nh; j++) {
+            if (!p[i].flag && p[i].size <= h[j].size) {
                 p[i].flag = 1;             // Mark process as allocated
                 p[i].holeId = h[j].id;     // Store the hole ID
                 h[j].size -= p[i].size;    // Reduce available size of the hole
