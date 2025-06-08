@@ -2,6 +2,81 @@
     Aim: To implement First Fit memory allocation strategy in C
          where each process is allocated to the first memory hole
          that is large enough to accommodate it.
+
+### ✅ **Descriptive Algorithm**
+
+---
+
+#### **Step 1: Initialization**
+
+1. Declare arrays:
+
+   * `p[10]` for storing **Process** structures.
+   * `h[10]` for storing **Hole** structures.
+2. Each process has:
+
+   * `size`: memory needed.
+   * `flag`: 0 if not allocated, 1 if allocated.
+   * `holeId`: index of the hole it gets allocated to (if any).
+3. Each hole has:
+
+   * `size`: available memory (reduced after allocation).
+   * `actual`: original size (preserved for reporting later).
+
+---
+
+#### **Step 2: Input Memory Hole Information**
+
+1. Ask the user to input number of holes `nh`.
+2. For each hole `H[i]`, input its `size`.
+3. Store this size in both `h[i].size` and `h[i].actual`.
+
+---
+
+#### **Step 3: Input Process Information**
+
+1. Ask the user to input number of processes `np`.
+2. For each process `P[i]`, input its `size`.
+3. Initialize `p[i].flag = 0` to indicate that no allocation has been done yet.
+
+---
+
+#### **Step 4: First Fit Allocation Algorithm**
+
+1. For each process `P[i]` (from `i = 0` to `np - 1`):
+
+   * Traverse the holes from `j = 0` to `nh - 1`.
+   * If `P[i]` is not yet allocated (`flag == 0`) **and** `P[i].size <= H[j].size`:
+
+     * Assign the hole to the process: `p[i].holeId = j`.
+     * Mark the process as allocated: `p[i].flag = 1`.
+     * Reduce available hole size: `h[j].size -= p[i].size`.
+     * Break the inner loop and move to next process.
+   * This ensures each process gets the **first available hole** large enough — that's why it's called **First Fit**.
+
+---
+
+#### **Step 5: Display Allocation Results**
+
+1. Print header: `"First Fit Allocation"`.
+2. For each process:
+
+   * Print process ID and size.
+   * If `flag == 1`, print the hole ID (`H[p[i].holeId]`) it's allocated to.
+   * Else, print `"Not allocated"`.
+
+---
+
+#### **Step 6: Display Remaining Hole Sizes**
+
+1. Print header: `"Hole\tActual\tAvailable"`.
+2. For each hole:
+
+   * Print hole ID.
+   * Print original size (`actual`) and remaining available size (`size` after allocations).
+
+------
+
 */
 
 #include <stdio.h>
