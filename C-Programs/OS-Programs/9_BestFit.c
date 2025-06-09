@@ -20,7 +20,7 @@ struct Hole {
     int actual;   // Original size of the hole (for display purposes)
 } h[10];          // Array to hold up to 10 holes
 
-// Function to sort holes in ascending order of available size
+// Function to sort holes in ascending order(Small -> Big) of available size
 void sortHoles(struct Hole h[], int n) {
     for (int i = 0; i < n - 1; i++)
         for (int j = i + 1; j < n; j++)
