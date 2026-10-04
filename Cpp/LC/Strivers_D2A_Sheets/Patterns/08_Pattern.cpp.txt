@@ -1,0 +1,35 @@
+// ============================================================
+// Pattern 8: Inverted Pyramid of Stars
+// Print a centered inverted pyramid where row i (1 to n) has (i - 1) spaces, then (2(n - i) + 1) stars
+// Logic: outer loop = rows, 1st inner loop prints spaces, 2nd inner loop prints stars
+// Time: O(n^2)   Space: O(1)
+// ============================================================
+
+// ---------- C++  ----------
+class Solution {
+public:
+    void printPattern(int n) {
+        for (int i = 1; i <= n; i++) {                  // rows
+            for (int j = 1; j <= i - 1; j++) {          // spaces = i - 1
+                cout << " ";
+            }
+            for (int j = 1; j <= 2 * (n - i) + 1; j++) { // stars = 2(n - i) + 1
+                cout << "*";
+            }
+            cout << endl;                               // next row
+        }
+    }
+};
+
+// ---------- Python ----------
+// class Solution:
+//     def printPattern(self, n):
+//         for i in range(1, n + 1):
+//             print(" " * (i - 1) + "*" * (2 * (n - i) + 1))
+
+// ---------- OUTPUT ----------
+// n = 4          n = 2
+// *******        ***
+//  *****          *
+//   ***
+//    *
