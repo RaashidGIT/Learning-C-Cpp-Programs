@@ -232,5 +232,3 @@ Duplicate case, `nums = [3, 3]`, `target = 6`:
 - **454. 4Sum II:** split into two halves and use a hash map of pair sums
 
 ---
-
-Send the next problem when you're ready. I can also merge the Python and C++ versions of 1 and 217 into one combined study document whenever you like.
