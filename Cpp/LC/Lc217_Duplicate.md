@@ -197,5 +197,3 @@ public:
 - **136. Single Number:** XOR trick
 
 ---
-
-Send the next problem when you're ready. I can also merge the Python and C++ versions of 217 into one combined note if you'd like.
