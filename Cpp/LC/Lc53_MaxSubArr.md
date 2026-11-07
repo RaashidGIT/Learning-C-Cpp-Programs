@@ -252,5 +252,3 @@ The check is `< 0`, not `<= 0`. Resetting on exactly 0 would also be correct (a 
 - **238. Product of Array Except Self:** a related prefix/suffix pattern
 
 ---
-
-Send the next problem when you're ready. With 1, 53, 121 and 217 done in both languages, I can also merge everything into one study document whenever you like.
