@@ -365,5 +365,3 @@ The order of operations inside each loop matters. Read or write first, then upda
 - **53. Maximum Subarray:** another one-pass running-value pattern
 
 ---
-
-Send the next problem when you're ready. With 1, 53, 121, 217 and 238 done in both languages, I can also merge everything into one study document whenever you like.
